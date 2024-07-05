@@ -5,3 +5,14 @@ scripts:
     - cd src && python3 manage.py makemigrations
   migrate:
     - cd src && python3 manage.py migrate
+
+  curl_auth: |
+    curl -X POST -H "Content-Type: application/json" -d '{"username": "tinyannadas", 
+    "password": "8695"}' http://127.0.0.1:8000/api/token/pair
+  
+  curl_protect: |
+    curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlI
+    joiYWNjZXNzIiwiZXhwIjoxNzIwMTA3NTQ3LCJpYXQiOjE3MjAxMDcyNDcsImp0aSI6IjU2MjdkYjJhOWYwZTQxYTBhMTI4NjM4NzBjMzE0ODYyIiwidXNlcl9pZCI6MX0.3Dr7fQheTCvMLoujKRoDTbTyc15hg7IkYrGzoTw-2t0" http://127.0.0.1:8000/api/me
+
+  # curl_protect: |
+  #   curl -X POST -H "Authorization: Bearer" '{"username": "tinyannadas", "password": "8695"}' http://127.0.0.1:8000/api/me
