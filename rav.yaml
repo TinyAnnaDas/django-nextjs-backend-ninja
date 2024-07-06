@@ -5,6 +5,12 @@ scripts:
     - cd src && python3 manage.py makemigrations
   migrate:
     - cd src && python3 manage.py migrate
+  
+  shell:
+    - cd src && python3 manage.py shell
+  
+  install:
+    - pip install -r requirements.txt
 
   curl_auth: |
     curl -X POST -H "Content-Type: application/json" -d '{"username": "tinyannadas", 
